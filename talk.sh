@@ -50,7 +50,15 @@ echo "What the... MAGIC!?!?"
 read
 
 clear
-echo "Let's add a backend!"
+echo "Let's add some functionality!"
 read
 
 vim -O projects/index.html projects/done.index.html
+show_page "projects/index.html"
+
+clear
+echo "Alright, on to the Javascript..."
+read
+
+vim -O projects/projects.js projects/done.projects.js
+show_page "projects/index.html"
