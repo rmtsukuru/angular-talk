@@ -1,36 +1,42 @@
-angular.module('CWDG Projects', ['ngRoute', 'ngResource'])
+angular.module('Projects', [])
+  .controller('ProjectsController', ['$scope', function($scope) {
+    $scope.projects = [
+      {title: 'An approved project', description: 'An approved project', approved: true},
+      {title: 'An unapproved project', description: 'An unapproved project', approved: false}
+    ];
 
-.factory('Projects', ['$resource', function($resource) {
-  $resource('http://cwdg-angular-demo.herokuapp.com/projects/:id', id: '@id')
-}])
+    $scope.addProject = function() {
+      $scope.projects.push({title: $scope.projectTitle, description: $scope.projectDescription, approved: false})
+      $scope.projectTitle = "";
+      $scope.projectDescription = "";
+    };
 
-.config(function($routeProvider) {
-  $routeProvider
-    .when('/', {
-      controller: 'ListCtrl',
-      templateUrl: 'list.html'
-    })
-    .when('/edit/:project_id', {
-      controller: 'EditCtrl',
-      templateUrl: 'detail.html'
-    })
-    .when('/new', {
-      controller: 'CreateCtrl',
-      templateUrl: 'detail.html'
-    })
-    .otherwise({
-      redirect_to: '/'
-    });
-})
+    $scope.activeProjects = function() {
+      var active = [];
+      angular.forEach($scope.projects, function(project){
+        if(project.approved){
+          active.push(project);
+        }
+      })
+      return active;
+    };
 
-.controller('ListCtrl', function($scope, Projects) {
-  $scope.projects = Projects;
-})
+    $scope.inactiveProjects = function() {
+      var inactive = [];
+      angular.forEach($scope.projects, function(project){
+        if(!project.approved){
+          inactive.push(project);
+        }
+      })
+      return inactive;
+    };
 
-.controller('CreateCtrl', function($scope, Projects) {
+    $scope.numActiveProjects = function() {
+      return $scope.activeProjects().length;
+    };
 
-})
+    $scope.numInactiveProjects = function() {
+      return $scope.inactiveProjects().length;
+    }
 
-.controller('EditCtrl', function($scope, Projects) {
-
-})
+  }]);
