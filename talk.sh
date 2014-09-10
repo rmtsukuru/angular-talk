@@ -31,33 +31,33 @@ print_centered "by J3RN"
 read
 
 clear
-echo "First, jQuery..."
+print_centered "First, jQuery..."
 read
 
 vim basic/jquery.html
 show_page "basic/jquery.html"
 
 clear
-echo "Alright, fair..."
-echo "What does Angular have?"
+print_centered "Alright, fair..."
+print_centered "What does Angular have?"
 read
 
 vim -O basic/index.html basic/done.index.html
 show_page "basic/index.html"
 
 clear
-echo "What the... MAGIC!?!?"
+print_centered "What the... MAGIC!?!?"
 read
 
 clear
-echo "Let's add some functionality!"
+print_centered "Let's add some functionality!"
 read
 
 vim -O projects/index.html projects/done.index.html
 show_page "projects/index.html"
 
 clear
-echo "Alright, on to the Javascript..."
+print_centered "Alright, on to the Javascript..."
 read
 
 vim -O projects/projects.js projects/done.projects.js
