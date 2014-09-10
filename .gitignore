@@ -1,0 +1,18 @@
+# Vim swap files
+*.swp
+
+# Rails stuff
+/angular-backend/ra-*.html
+/angular-backend/.rspec
+/angular-backend/log
+/angular-backend/tmp
+/angular-backend/public/system
+/angular-backend/coverage/
+/angular-backend/spec/tmp
+**.orig
+
+config/secrets.yml
+
+## Environment normalisation:
+/angular-backend/.bundle
+/angular-backend/vendor/bundle

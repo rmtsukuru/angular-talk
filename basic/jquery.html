@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>jQuery Version!</title>
+  <script src="jquery-2.1.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("input[name='name']").keyup(function(){
+        var name=$(this).val();
+        var greeting="Hello " + name + "!";
+
+        $("#greeting").html(greeting);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div>
+    <label>Name:</label>
+    <input type="text" name="name" />
+  </div>
+  <div>
+    <h1 id="greeting">Hello !</h1>
+  </div>
+</body>
+</html>
